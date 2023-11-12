@@ -3,13 +3,13 @@ package Test.Kalvad.Controller;
 import Test.Kalvad.Entity.Address;
 import Test.Kalvad.Entity.Customer;
 import Test.Kalvad.Services.CustomerService;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 

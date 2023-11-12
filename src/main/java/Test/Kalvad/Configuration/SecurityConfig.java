@@ -33,9 +33,9 @@ public class SecurityConfig {
         http
 
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/customer/{id}/address").hasAnyRole("USER", "ADMIN")
-                        .requestMatchers("customer/{id}/address/{address_id}").hasAnyRole("USER", "ADMIN")
-                        .requestMatchers("/customer/**").hasRole("ADMIN")
+                        .antMatchers("/customer/{id}/address").hasAnyRole("USER", "ADMIN")
+                        .antMatchers("customer/{id}/address/{address_id}").hasAnyRole("USER", "ADMIN")
+                        .antMatchers("/customer/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 ).httpBasic(Customizer.withDefaults())
                 .csrf(AbstractHttpConfigurer::disable);
