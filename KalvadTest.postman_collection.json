@@ -1,0 +1,338 @@
+{
+	"info": {
+		"_postman_id": "14fb41ad-19e5-4cf0-8af8-4eacc532de89",
+		"name": "KalvadTest",
+		"description": "# Delivery Company Customer Information API Documentation.\n\n## Authentication:\n\nFor authentication, the application employs Basic Authentication to enhance security measures. Two predefined user accounts have been initialized for testing purposes, each with distinct sets of authorities. These user accounts provide comprehensive test coverage for various scenarios within the API.\n\n## **Admin user credentials:**\n\n- Username: admin\n- Password:ADMIN\n    \n\n## **Customer user credentials:**\n\n- Username: user\n- Password: PASSWORD\n    \n\n## **NOTE: I made the ADMIN can call all the API to make it easier for the tester.**",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27103997"
+	},
+	"item": [
+		{
+			"name": "GetAllCustomers",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "ADMIN",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/customer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"customer"
+					]
+				},
+				"description": "Retrieve a list of all customers in the system.\n\nyou should use the Admin authentication to call this API.\n\nno arguments needed."
+			},
+			"response": []
+		},
+		{
+			"name": "Get by id",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "ADMIN",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/customer/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"customer",
+						"1"
+					]
+				},
+				"description": "Retrieve the customer with mentioned id in the path.\n\nyou should use the Admin authentication to call this API.\n\nno arguments needed."
+			},
+			"response": []
+		},
+		{
+			"name": "add Customer",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "ADMIN",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\" : \"Saeed\",\r\n    \"lastName\": \"Alkhoury\",\r\n    \"phoneNumber\":\"+971 543 880 933\",\r\n    \"email\": \"alkhoury@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/customer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"customer"
+					]
+				},
+				"description": "Create a new customer by providing the required customer information in the request body (JSON BODY).\n\nonly ADMINS can use this API."
+			},
+			"response": []
+		},
+		{
+			"name": "add address to a customer",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "PASSWORD",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"typeOfAddress\" : \"office\",\r\n    \"city\": \"Sharjah\",\r\n    \"country\": \"UAE\",\r\n    \"addressLine\": \"sharjah alhabtoor\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/customer/2/address",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"customer",
+						"2",
+						"address"
+					]
+				},
+				"description": "Create a new address for a specific customer by providing the address details in the request body (JSON BODY).\n\nAdmins and customers can call this API."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Address",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "ADMIN",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/customer/1/address/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"customer",
+						"1",
+						"address",
+						"1"
+					]
+				},
+				"description": "Delete a specific address from specific customer Addresses List.\n\nADMIN and Customers can call this api."
+			},
+			"response": []
+		},
+		{
+			"name": "Get customers by city",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "ADMIN",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/city/Sharjah",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"city",
+						"Sharjah"
+					]
+				},
+				"description": "Retrieve a list of customers based in a particular city\n\ncity name should be provided in the path\n\nADMINS can call this API."
+			},
+			"response": []
+		},
+		{
+			"name": "Get customers with specific prefix",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "ADMIN",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/phone/+971",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"phone",
+						"+971"
+					]
+				},
+				"description": "Retrieve a list of customers based in a particular phone number prefix\n\nprefix should be provided in the path\n\nADMINS can call this API."
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "ADMIN",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "admin",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
