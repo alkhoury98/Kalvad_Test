@@ -2,11 +2,11 @@ package Test.Kalvad.Entity;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Data;
+
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.Optional;
+
 
 
 @Entity
