@@ -2,7 +2,7 @@
 
 
 
-to run this project please make sure that you have docker desktop opened on your pc.Then use the command docker-compose up on intellij terminal.
+to run this project please make sure that you have docker desktop opened on your pc. First time you run the application make sure you have installed the maven of the applicaiton in maven-> install to build the targeted docker file Then use the command "docker-compose up" on intellij terminal.
 
 or you can just run the project normally but you have to make sure that you have mysql on your System. 
 
