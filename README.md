@@ -4,10 +4,10 @@
 This project is a Java 11 implementation of an API for a delivery company, specifically designed to manage customer information through a delivery form. The API provides endpoints for retrieving, creating, and managing customer data, including addresses.
 
 ## Technologies used: 
-Spring Boot: Used for building the API.
-Maven: Dependency management and build tool.
-Mysql: Database management system. 
-docker: Docker is a platform and tool designed to make it easier to create, deploy, and run applications by using containers.
+1. Spring Boot: Used for building the API.
+2. Maven: Dependency management and build tool
+3. Mysql: Database management system.
+4. docker: Docker is a platform and tool designed to make it easier to create, deploy, and run applications by using containers.
 
 ## How to Run
 
