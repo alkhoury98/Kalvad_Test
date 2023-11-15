@@ -1,11 +1,34 @@
-# Kalvad_Test
+#### Kalvad_Test (Delivery Application Crud)
 
+## Descrption:
+This project is a Java 11 implementation of an API for a delivery company, specifically designed to manage customer information through a delivery form. The API provides endpoints for retrieving, creating, and managing customer data, including addresses.
 
+## Technologies used: 
+Spring Boot: Used for building the API.
+Maven: Dependency management and build tool.
+Mysql: Database management system. 
+docker: Docker is a platform and tool designed to make it easier to create, deploy, and run applications by using containers.
 
-to run this project please make sure that you have docker desktop opened on your pc. First time you run the application make sure you have installed the maven of the applicaiton in maven-> install to build the targeted docker file Then use the command "docker-compose up" on intellij terminal.
+## How to Run
 
-or you can just run the project normally but you have to make sure that you have mysql on your System. 
+1. Ensure you have Java 11 installed on your system.
+2. Ensure you have Mysql installed on your system.
+3. Clone this repository.
+4. Build and run the application.
 
-there is a postman collection attached that include the API's and there Documentation.  
+## How to Run using docker   
 
-NOTE: IF YOU RUN THE APPLICATION NORMALLY WITHOUT USING DOCKER MAKE SUER THAT YOU CHANGE THE LOCALHOST PORT TO 8080 IN POSTMAN. 
+1. Ensure you have Java 11 installed on your system.
+2. Clone this repository.
+3. Make sure you have Maven installed, then navigate to the project root directory and run the following command to build the application.
+4. Run with Docker Compose using this command -> docker-compose up.
+
+## NOTES:
+-The first time you run the application, it is recommended to perform a Maven clean install to ensure that all dependencies are resolved and the Docker image is properly built.
+-Ensure that Docker Desktop is opened on your machine before running the docker-compose up command.
+-there is a postman collection attached to the project you can use. 
+
+## Access the Application
+# once application is running without using docker, you can access it at http://localhost:8080
+# if you are using docker, you can access it at http://localhost:9090
+
