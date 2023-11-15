@@ -9,14 +9,6 @@ This project is a Java 11 implementation of an API for a delivery company, speci
 3. Mysql: Database management system.
 4. docker: Docker is a platform and tool designed to make it easier to create, deploy, and run applications by using containers.
 
-## How to Run
-
-1. Ensure you have Java 11 installed on your system.
-2. Ensure you have Mysql installed on your system.
-3. Clone this repository.
-4. Build and run the application.
-
-## How to Run using docker   
 
 1. Ensure you have Java 11 installed on your system.
 2. Clone this repository.
@@ -30,7 +22,6 @@ This project is a Java 11 implementation of an API for a delivery company, speci
 
 
 ## Access the Application
-1. once your application is running without using docker, you can access it at http://localhost:8080
 2. if you are using docker, you can access it at http://localhost:9090
 
 
