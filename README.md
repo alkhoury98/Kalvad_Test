@@ -23,10 +23,10 @@ docker: Docker is a platform and tool designed to make it easier to create, depl
 3. Make sure you have Maven installed, then navigate to the project root directory and run the following command to build the application.
 4. Run with Docker Compose using this command -> docker-compose up.
 
-## NOTES:
+## NOTES
 1. The first time you run the application, it is recommended to perform a Maven clean install to ensure that all dependencies are resolved and the Docker image is properly built.
 2. Ensure that Docker Desktop is opened on your machine before running the docker-compose up command.
-3. there is a postman collection attached to the project you can use. 
+3. there is a postman collection attached to the project you can use.
 
 
 ## Access the Application
