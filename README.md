@@ -22,7 +22,7 @@ This project is a Java 11 implementation of an API for a delivery company, speci
 
 
 ## Access the Application
-2. if you are using docker, you can access it at http://localhost:9090
+1. you can access it at http://localhost:9090
 
 
 
