@@ -24,11 +24,15 @@ docker: Docker is a platform and tool designed to make it easier to create, depl
 4. Run with Docker Compose using this command -> docker-compose up.
 
 ## NOTES:
--The first time you run the application, it is recommended to perform a Maven clean install to ensure that all dependencies are resolved and the Docker image is properly built.
--Ensure that Docker Desktop is opened on your machine before running the docker-compose up command.
--there is a postman collection attached to the project you can use. 
+1. The first time you run the application, it is recommended to perform a Maven clean install to ensure that all dependencies are resolved and the Docker image is properly built.
+2. Ensure that Docker Desktop is opened on your machine before running the docker-compose up command.
+3. there is a postman collection attached to the project you can use. 
+
 
 ## Access the Application
--once your application is running without using docker, you can access it at http://localhost:8080
--if you are using docker, you can access it at http://localhost:9090
+1. once your application is running without using docker, you can access it at http://localhost:8080
+2. if you are using docker, you can access it at http://localhost:9090
+
+
+
 
