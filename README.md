@@ -29,6 +29,6 @@ docker: Docker is a platform and tool designed to make it easier to create, depl
 -there is a postman collection attached to the project you can use. 
 
 ## Access the Application
-once your application is running without using docker, you can access it at http://localhost:8080
-if you are using docker, you can access it at http://localhost:9090
+-once your application is running without using docker, you can access it at http://localhost:8080
+-if you are using docker, you can access it at http://localhost:9090
 
