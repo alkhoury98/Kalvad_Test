@@ -6,12 +6,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-
+import java.io.Serializable;
 
 
 @Entity
 @Table(name = "address")
-public class Address {
+public class Address implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,6 +42,23 @@ public class Address {
         this.city = city;
         this.country = country;
         this.addressLine = addressLine;
+    }
+
+    public Address(String typeOfAddress, String city, String country, String addressLine, Customer customer) {
+        this.typeOfAddress = typeOfAddress;
+        this.city = city;
+        this.country = country;
+        this.addressLine = addressLine;
+        this.customer = customer;
+    }
+
+    public Address(Long aId, String typeOfAddress, String city, String country, String addressLine, Customer customer) {
+        this.aId = aId;
+        this.typeOfAddress = typeOfAddress;
+        this.city = city;
+        this.country = country;
+        this.addressLine = addressLine;
+        this.customer = customer;
     }
 
     public Address() {

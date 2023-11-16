@@ -1,5 +1,6 @@
 package Test.Kalvad.Repository;
 
+import Test.Kalvad.DTO.CustomerDTO;
 import Test.Kalvad.Entity.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -18,7 +19,7 @@ public interface CustomerRepo extends JpaRepository<Customer, Long> {
     //query that join two table to gets list of customer that have addresses in specific city.
     @Transactional
     @Modifying
-    @Query(value = "SELECT * FROM springdocker.customer c JOIN springdocker.address a on c.id = a.customer_id WHERE city = :city", nativeQuery = true)
+    @Query(value = "SELECT * FROM customer c JOIN address a on c.id = a.customer_id WHERE city = :city" , nativeQuery = true)
     List<Customer> findCustomersInCity(@Param("city") String city);
 
 

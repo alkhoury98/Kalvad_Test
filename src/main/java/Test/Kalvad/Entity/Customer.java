@@ -1,6 +1,7 @@
 package Test.Kalvad.Entity;
 
 
+import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -8,6 +9,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +17,10 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @Table(name = "customer")
-public class Customer {
+public class Customer implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,6 +48,14 @@ public class Customer {
     private List<Address> addressesList = new ArrayList<>();
 
 
+    public Customer(String firstName, String lastName, String phoneNumber, String email, List<Address> addressesList) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.addressesList = addressesList;
+    }
+
     public Customer(String firstName, String lastName, String phoneNumber, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -50,6 +63,13 @@ public class Customer {
         this.email = email;
     }
 
+    public Customer(Long id, String firstName, String lastName, String phoneNumber, String email) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+    }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -89,5 +109,9 @@ public class Customer {
 
     public List<Address> getAddressesList() {
         return addressesList;
+    }
+
+    public void setAddressesList(List<Address> addressesList) {
+        this.addressesList = addressesList;
     }
 }

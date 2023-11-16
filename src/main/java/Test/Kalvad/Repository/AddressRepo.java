@@ -14,7 +14,7 @@ public interface AddressRepo extends JpaRepository<Address, Long> {
 
     @Modifying
     @Transactional
-    @Query(value = "DELETE FROM springdocker.address WHERE a_id = :id And customer_id= :cID", nativeQuery = true)
+    @Query(value = "DELETE FROM address WHERE a_id = :id And customer_id= :cID", nativeQuery = true)
     void deleteAddressByCustomer(@Param("id") Long id, @Param("cID") Long cId);
 
 

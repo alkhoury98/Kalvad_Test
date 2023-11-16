@@ -1,5 +1,6 @@
 package Test.Kalvad.Services;
 
+import Test.Kalvad.DTO.CustomerDTO;
 import Test.Kalvad.Entity.Address;
 import Test.Kalvad.Entity.Customer;
 import org.springframework.stereotype.Service;
@@ -9,7 +10,9 @@ import java.util.List;
 @Service
 public interface CustomerService {
 
-    List<Customer> getAll();
+    List<CustomerDTO> getAll();
+
+    CustomerDTO getCustomerDTO(Long id);
 
     Customer get(Long id);
 
@@ -21,8 +24,8 @@ public interface CustomerService {
 
     void deleteAddress(Long id, Long cid);
 
-    List<Customer> getCityCustomer(String city);
+    List<CustomerDTO> getCityCustomer(String city);
 
-    List<Customer> getCustomersByPrefix(String prefix);
+    List<CustomerDTO> getCustomersByPrefix(String prefix);
 
 }

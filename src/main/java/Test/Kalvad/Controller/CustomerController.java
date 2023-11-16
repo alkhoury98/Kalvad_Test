@@ -1,10 +1,13 @@
 package Test.Kalvad.Controller;
 
+import Test.Kalvad.DTO.CustomerDTO;
 import Test.Kalvad.Entity.Address;
 import Test.Kalvad.Entity.Customer;
 import Test.Kalvad.Services.CustomerService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -15,6 +18,7 @@ import java.util.List;
 
 @RestController
 @Validated
+@AllArgsConstructor
 public class CustomerController {
 
 
@@ -24,14 +28,14 @@ public class CustomerController {
 
     // Getting all Customers Controller
     @GetMapping("/customer")
-    public ResponseEntity<List<Customer>> showCostumerList() {
-        List<Customer> customerUsers = customerService.getAll();
+    public ResponseEntity<List<CustomerDTO>> showCustomerList() {
+        List<CustomerDTO> customerUsers = customerService.getAll();
         return ResponseEntity.ok().body(customerUsers);
     }
 
     // Creating new customer Controller
     @PostMapping("/customer")
-    public ResponseEntity<Customer> saveUser(@Valid @RequestBody Customer customer) {
+    public ResponseEntity<Customer> saveCustomer(@Valid @RequestBody Customer customer) {
         Customer createdCustomer = customerService.save(customer);
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest()
@@ -43,9 +47,8 @@ public class CustomerController {
 
     // Getting Customer with specific id With Handling Not found exception.
     @GetMapping("/customer/{id}")
-    public ResponseEntity<Customer> getCustomer(@PathVariable Long id) {
-
-        Customer customer = customerService.get(id);
+    public ResponseEntity<CustomerDTO> getCustomer(@PathVariable Long id) {
+        CustomerDTO customer = customerService.getCustomerDTO(id);
         return ResponseEntity.ok(customer);
     }
 
@@ -65,22 +68,22 @@ public class CustomerController {
 
     //Deleting specific address from specific Customer.
     @DeleteMapping("/customer/{id}/address/{address_id}")
-    public String DeleteAddressFromCustomer(@PathVariable Long id, @PathVariable Long address_id) {
+    public ResponseEntity<String> DeleteAddressFromCustomer(@PathVariable Long id, @PathVariable Long address_id) {
         customerService.deleteAddress(address_id, id);
-        return "Deleted Successfully";
+        return ResponseEntity.ok().body("Deleted Successfully");
     }
 
 
     // Listing all the customers that have addresses in a specific city.
     @GetMapping("/city/{city}")
-    public List<Customer> listCustomerByCity(@PathVariable String city) {
+    public List<CustomerDTO> listCustomerByCity(@PathVariable String city) {
         return customerService.getCityCustomer(city);
     }
 
 
     //Listing all the customers that have the same prefix as country code.
     @GetMapping("/phone/{prefix}")
-    public List<Customer> listCustomersByPrefix(@PathVariable String prefix) {
+    public List<CustomerDTO> listCustomersByPrefix(@PathVariable String prefix) {
         return customerService.getCustomersByPrefix(prefix);
     }
 

@@ -1,25 +1,28 @@
 package Test.Kalvad.ExceptionHandling;
 
+import org.springframework.http.HttpStatus;
+
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class ErrorDetails {
-    private final int statusCode;
-    private final Date timestamp;
+    private final HttpStatus statusCode;
+    private final LocalDateTime timestamp;
     private final String message;
     private final String description;
 
-    public ErrorDetails(int statusCode, Date timestamp, String message, String description) {
+    public ErrorDetails(HttpStatus statusCode, LocalDateTime timestamp, String message, String description) {
         this.statusCode = statusCode;
         this.timestamp = timestamp;
         this.message = message;
         this.description = description;
     }
 
-    public int getStatusCode() {
+    public HttpStatus getStatusCode() {
         return statusCode;
     }
 
-    public Date getTimestamp() {
+    public LocalDateTime getTimestamp() {
         return timestamp;
     }
 
