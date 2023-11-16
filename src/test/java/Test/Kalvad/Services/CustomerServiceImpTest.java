@@ -8,19 +8,15 @@ import Test.Kalvad.Repository.AddressRepo;
 import Test.Kalvad.Repository.CustomerRepo;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
@@ -120,17 +116,16 @@ class CustomerServiceImpTest {
 
     @Test
     void deleteAddress() {
-        // Arrange
+        // given
         Long customerId = 1L;
         Long addressId = 2L;
 
-        // Mock the behavior of your customer repository
         when(customerRepo.findById(customerId)).thenReturn(Optional.of(new Customer("Test", "one", "+971 676767 77", "Test1@gmail.com")));
 
-        // Act
+        // when
         underTest.deleteAddress(addressId, customerId);
 
-        // Assert
+        // then
         verify(customerRepo, times(1)).findById(customerId);
         verify(addressRepo, times(1)).deleteAddressByCustomer(addressId, customerId);
 

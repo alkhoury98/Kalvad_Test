@@ -1,6 +1,5 @@
 package Test.Kalvad.Repository;
 
-import Test.Kalvad.DTO.CustomerDTO;
 import Test.Kalvad.Entity.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;

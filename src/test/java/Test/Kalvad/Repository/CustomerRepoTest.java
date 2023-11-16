@@ -1,6 +1,5 @@
 package Test.Kalvad.Repository;
 
-import Test.Kalvad.Entity.Address;
 import Test.Kalvad.Entity.Customer;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

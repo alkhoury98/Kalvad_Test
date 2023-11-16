@@ -3,7 +3,6 @@ package Test.Kalvad.ExceptionHandling;
 import org.springframework.http.HttpStatus;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 public class ErrorDetails {
     private final HttpStatus statusCode;

@@ -10,7 +10,6 @@ import org.springframework.test.annotation.DirtiesContext;
 import javax.transaction.Transactional;
 
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 
 @DataJpaTest
